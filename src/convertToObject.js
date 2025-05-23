@@ -7,20 +7,22 @@
  */
 function convertToObject(sourceString) {
   const cssProperties = sourceString.split(';');
-  const result = {};
+  const formatedProperties = {};
 
   cssProperties.forEach((element) => {
-    const [key, value] = element.split(':');
+    if (element.length > 0) {
+      const [key, value] = element.split(':');
 
-    if (key && value) {
-      const trimmedKey = key.trim();
-      const trimmedValue = value.trim();
+      if (key && value) {
+        const trimmedKey = key.trim();
+        const trimmedValue = value.trim();
 
-      result[trimmedKey] = trimmedValue;
+        formatedProperties[trimmedKey] = trimmedValue;
+      }
     }
   });
 
-  return result;
+  return formatedProperties;
 }
 
 module.exports = convertToObject;
