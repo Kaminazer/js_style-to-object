@@ -10,7 +10,7 @@ function convertToObject(sourceString) {
   const formatedProperties = {};
 
   cssProperties.forEach((element) => {
-    if (element.length > 0) {
+    if (element.trim().length > 0) {
       const [key, value] = element.split(':');
 
       if (key && value) {
